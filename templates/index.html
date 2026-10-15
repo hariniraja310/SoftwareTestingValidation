@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Testing & Validation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="topbar">
+        <div>
+            <h1>Software Testing & Validation</h1>
+            <p>Ticket Booking System - Testing Dashboard</p>
+        </div>
+        <span id="dbStatus" class="db-status">Checking database...</span>
+    </header>
+
+    <main class="container">
+        <section class="intro">
+            <h2>Testing Dashboard</h2>
+            <p>Select a test to check the booking system.</p>
+        </section>
+
+        <section class="booking-panel">
+            <h2>Create a Test Booking</h2>
+            <form id="bookingForm">
+                <label for="eventName">Event Name</label>
+                <input id="eventName" type="text"
+                       placeholder="Example: Music Concert" required>
+
+                <label for="seatNumber">Seat Number</label>
+                <input id="seatNumber" type="text"
+                       placeholder="Example: A1" required>
+
+                <button type="submit">Create Booking</button>
+            </form>
+            <p id="bookingMessage" class="message" aria-live="polite"></p>
+        </section>
+
+        <section class="search-panel">
+            <h2>Search Bookings</h2>
+            <form id="searchForm">
+                <input id="searchText" type="text"
+                       placeholder="Search by event name">
+                <button type="submit">Search</button>
+                <button type="button" id="showAllButton" class="secondary">
+                    Show All
+                </button>
+            </form>
+            <div id="bookingResults"></div>
+        </section>
+
+        <section>
+            <h2>Test Cases</h2>
+            <div id="testGrid" class="test-grid">
+
+                <article class="test-card">
+                    <h3>Search Results</h3>
+                    <p>Check whether search results are correct.</p>
+                    <button class="run-test" data-test="Search Results">Run Test</button>
+                    <p class="test-result" id="result-search-results">Not tested</p>
+                </article>
+
+                <article class="test-card">
+                    <h3>Seat Allocation</h3>
+                    <p>Check whether different seats are allocated correctly.</p>
+                    <button class="run-test" data-test="Seat Allocation">Run Test</button>
+                    <p class="test-result" id="result-seat-allocation">Not tested</p>
+                </article>
+
+                <article class="test-card">
+                    <h3>Duplicate Booking</h3>
+                    <p>Check whether the same seat can be booked twice.</p>
+                    <button class="run-test" data-test="Duplicate Booking">Run Test</button>
+                    <p class="test-result" id="result-duplicate-booking">Not tested</p>
+                </article>
+
+                <article class="test-card">
+                    <h3>Payment Failure</h3>
+                    <p>Check whether failed payment status is saved.</p>
+                    <button class="run-test" data-test="Payment Failure">Run Test</button>
+                    <p class="test-result" id="result-payment-failure">Not tested</p>
+                </article>
+
+                <article class="test-card">
+                    <h3>Cancellation</h3>
+                    <p>Check whether a booking can be cancelled.</p>
+                    <button class="run-test" data-test="Cancellation">Run Test</button>
+                    <p class="test-result" id="result-cancellation">Not tested</p>
+                </article>
+
+                <article class="test-card">
+                    <h3>Refund</h3>
+                    <p>Check whether refund status can be updated.</p>
+                    <button class="run-test" data-test="Refund">Run Test</button>
+                    <p class="test-result" id="result-refund">Not tested</p>
+                </article>
+
+                <article class="test-card">
+                    <h3>Booking Status</h3>
+                    <p>Check confirmed, failed and cancelled statuses.</p>
+                    <button class="run-test" data-test="Booking Status">Run Test</button>
+                    <p class="test-result" id="result-booking-status">Not tested</p>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Software Testing & Validation Project</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
